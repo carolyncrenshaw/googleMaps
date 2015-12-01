@@ -1,0 +1,64 @@
+body {
+	background-color:#2e2e2e;
+}
+
+#topInfo {
+	float:left;
+	width:50vw;
+	height:100vh;
+	z-index: -9999;
+
+
+
+}
+
+#moveUp{
+  right: 50%;
+  left: 50%;
+  position:fixed;
+  z-index:999;
+  font-size: 1em;
+  background-color:yellow;
+  width:200px;
+}
+
+#signature {
+
+	max-width:98%;
+	
+	margin:0 15px;
+	
+	text-align:center;
+}
+
+h1 {
+	color:white;
+	text-align:center;
+	font-family: 'Alegreya Sans SC', sans-serif;
+	font-weight:100;
+	line-height:0px;
+	margin-top:40px;
+
+}
+
+hr {
+	width:450px;
+	line-height:0px;
+
+}
+
+#description {
+	font-family: 'Arvo', serif;
+	font-size: 30px;
+	color:#e2e2e2;
+	text-align: justify;
+	padding:30px;
+
+}
+
+#selfportrait {
+
+	float:left;
+	padding:0px 15px 0px 0px;
+
+}

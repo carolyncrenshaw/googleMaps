@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      
+      <link rel="stylesheet" href="css/stylesheet.css">
+   <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,100' rel='stylesheet' type='text/css'>
+   <link href='https://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+   <style type="text/css">
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #dvmap {
+        position:fixed;
+        z-index:9999;
+        height: 100vh;
+        padding-left:10px;
+        width:45%;
+        float:right;
+      }
+    </style>
+
+
+  </head>
+  <body>
+   
+
+    
+  <script type="text/javascript">
+
+   
+
+ var markers = [
+    {
+        "title": 'Rouelles, Le Havre',
+        "lat": '49.520833',
+        "lng": '0.160833',
+        "description": 'Rouelles, Le Havre'
+    },
+    {
+        "title": 'Honfleur',
+        "lat": '49.418762',
+        "lng": '0.233262',
+        "description": 'Honfleur'
+    },
+    {
+        "title": 'Sainte Adresse',
+        "lat": '49.509100',
+        "lng": '0.078490',
+        "description": 'Sainte Adresse'
+    },
+    {
+        "title": 'the Seine at Bougival',
+        "lat": '48.862754',
+        "lng": '2.138909',
+        "description": 'the Seine at Bougival'
+    },
+    {
+        "title": 'Étretat, Normandy',
+        "lat": '49.707007',
+        "lng": '0.205598',
+        "description": 'The Magpie'
+    },
+    {
+        "title": 'Trouville-sur-Mer',
+        "lat": '49.366289',
+        "lng": '0.082808',
+        "description": 'Trouville-sur-Mer'
+    },
+    
+    {
+        "title": 'Saint Lazare',
+        "lat": '48.876683',
+        "lng": '2.325271',
+        "description": 'Saint Lazare, France'
+    },
+    {
+        "title": 'Vétheuil',
+        "lat": '49.061864',
+        "lng": '1.709642',
+        "description": 'Vétheuil'
+    },
+    {
+        "title": 'Monet##s Apartment & Gardens',
+        "lat": '49.081595',
+        "lng": '1.533504',
+        "description": 'Argenteuil'
+    },
+    {
+        "title": 'Place de la Cathédrale',
+        "lat": '49.446491',
+        "lng": '1.097600',
+        "description": 'Place de la Cathédrale'
+    },
+    {
+        "title": 'Epte',
+        "lat": '49.073949',
+        "lng": '1.550992',
+        "description": 'Epte'
+      },
+      {
+        "title": 'Argenteuil',
+        "lat": '48.94721',
+        "lng": '2.246685',
+        "description": 'Argenteuil'
+    },
+      {
+        "title": 'Pourville-sur-Mer',
+        "lat": '49.896928',
+        "lng": '1.033522',
+        "description": 'Pourville-sur-Mer, now Hautot-sur-Mer',
+      },
+      {
+        "title": 'Trouville-sur-Mer',
+        "lat": '49.372328',
+        "lng": '0.084039',
+        "description": 'Trouville-sur-Mer'
+      },
+      {
+        "title": 'Boulevard des Capucines',
+        "lat": '48.870644',
+        "lng": '2.332113',
+        "description": 'Boulevard des Capucines'
+      },
+      
+
+
+    ];
+    window.onload = function () {
+        LoadMap();
+    }
+    function LoadMap() {
+        var mapOptions = {
+            center: {lat: 49.4, lng: 1.3},
+            zoom: 8,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("dvmap"), mapOptions);
+ 
+        //Create and open InfoWindow.
+        var infoWindow = new google.maps.InfoWindow();
+ 
+        for (var i = 0; i < markers.length; i++) {
+            var data = markers[i];
+            var myLatlng = new google.maps.LatLng(data.lat, data.lng);
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: data.title,
+               
+            });
+ 
+            //Attach click event to the marker.
+            (function (marker, data) {
+                google.maps.event.addListener(marker, "click", function (e) {
+                    //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
+                    infoWindow.setContent("<div style = 'width:200px;min-height:200px'>" + data.description + "</div>");
+                    infoWindow.open(map, marker);
+                });
+            })(marker, data);
+        }
+    }
+
+
+
+
+    </script>
+    
+
+
+     <!-- <div id="wrapper"> -->
+     
+
+      <div id="topInfo">
+        <h1>Explore the timeless works of </h1><hr>
+     <img id="signature" src="img/signature.png">      
+     <p id="description"><img src="img/selfportrait.jpg" id="selfportrait"> Use the map to see where he painted some of his masterpieces. </p>
+
+
+
+
+
+       </div>   
+
+
+<div id="dvmap"></div>
+     
+  
+
+
+<!-- 
+<div id="fullpage">
+    <div class="row">
+      <div class="large-12 columns section topInfo">dskfjgdskfhdsj</div>
+    </div>
+     
+     
+        <div id="dvmap" class="section">
+    
+  </div>
+</div> -->
+<script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByzrTWmnXfAtNIKUorfHVUHG-SEyRev-c&callback=initMap">
+    </script>
+  </body>
+</html>
